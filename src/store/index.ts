@@ -1,7 +1,8 @@
 import { createStore } from 'vuex'
-
+import {ListModule} from './List'
 export default createStore({
   state: {
+    ...ListModule.state
   },
   getters: {
   },
@@ -10,5 +11,6 @@ export default createStore({
   actions: {
   },
   modules: {
+    ListModule
   }
 })

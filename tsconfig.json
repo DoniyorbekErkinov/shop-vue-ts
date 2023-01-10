@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
+    "allowJs": true,
     "jsx": "preserve",
     "moduleResolution": "node",
     "skipLibCheck": true,
@@ -30,6 +31,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "src/**/*.js",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
