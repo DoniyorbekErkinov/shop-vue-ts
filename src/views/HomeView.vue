@@ -13,12 +13,7 @@
           </div>
         </div>
         <div class=" flex flex-row p-8">
-          <div class="flex flex-wrap justify-around">
-            <div class="m-2 w-3/12 rounded-lg bg-[#fdfdfd] shadow-slate-300 shadow-md justify-between p-4" v-for="(item, i) in dataList" :key="i">
-              <img :src="item.image" alt="">
-              <h1>{{ item.name }} | {{ item.brand }}</h1>
-          </div>
-          </div>
+          <List :dataList="dataList"/>
         </div>
       </div>
     </div>
@@ -27,15 +22,17 @@
 
 <script lang="ts" setup>
 import { defineComponent, ref } from 'vue';
+import { useStore } from 'vuex';
 import SideBar from '@/components/SideBar/SideBar.vue'
 import SearchBar from '@/components/SearchBar/SearchBar.vue';
-import { useStore } from 'vuex';
 import SelectComponents from '@/components/Selects/SelectComponents.vue';
+import List from '@/components/List/List.vue';
 defineComponent({
   name: 'HomeView',
   components: {
     SideBar,
-    SearchBar
+    SearchBar,
+    List
   },
 });
 const store = useStore()
