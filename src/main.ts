@@ -12,9 +12,11 @@ import './index.css'
 import mdiVue from 'mdi-vue/v3'
 import * as mdijs from '@mdi/js'
 // icons package
+
+
 const app = createApp(App)
 app.use(store).use(router)
 app.use(mdiVue, {
-    icons: mdijs
-  })
+  icons: mdijs
+})
 app.mount('#app')

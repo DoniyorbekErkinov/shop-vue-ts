@@ -10,8 +10,10 @@
     "core-js": "^3.8.3",
     "mdi-vue": "^3.0.13",
     "register-service-worker": "^1.7.2",
+    "update": "^0.7.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-star-rating": "^2.1.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

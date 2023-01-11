@@ -18,16 +18,13 @@
 
 <script lang="ts" setup> 
 import { ref, defineProps, PropType } from 'vue';
+import type { SelectType } from "@/types/types";
 /**
  * Created Type and props
- */
-type ListType = {
-    text: string | number,
-    value: string | number
-}   
+ */ 
 const props = defineProps({
     selectList: {
-        type: Array as PropType<ListType[]>,
+        type: Array as PropType<SelectType[]>,
         default: []
     }
 })
