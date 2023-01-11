@@ -10,8 +10,13 @@
 import { ref } from 'vue';
 const search = ref("")
 const emit = defineEmits(['update:search'])
+const timer = ref<undefined | number>(undefined)
 const updateValue = (event) => {
-    emit('update:search', (event.target as HTMLInputElement).value)
+    clearTimeout(timer.value)
+
+      timer.value = setTimeout(() => {
+        emit('update:search', (event.target as HTMLInputElement).value)    
+      }, 500)
 }
 </script>
 
