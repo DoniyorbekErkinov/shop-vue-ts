@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200">
+  <div>
     <div class="container mx-auto flex sm:w-full  md:w-full lg:py-12 lg:px-16 xl:py-12 xl:px-16">
       <div class="w-2/12 max-md:hidden max-lg:hidden max-xl:hidden">
         <SideBar @getSideBarFilters="getSideBarFilters($event)"/>
@@ -12,7 +12,7 @@
             <SelectComponents :selectList="filter" @input="sortByPrice($event)"/>
           </div>
         </div>
-        <div class=" flex flex-row  my-12 mx-auto px-4 md:px-12 lg:p-8 xl:p-8">
+        <div class=" flex flex-row  my-4 mx-auto px-4 md:px-12 lg:p-8 xl:p-8">
           <List :dataList="dataList"/>
         </div>
       </div>

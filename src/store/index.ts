@@ -5,7 +5,8 @@ import products from "../data/data"
 export default createStore({
   state: {
     products: products,
-    filteredProducts: <ListType[]>[]
+    filteredProducts: <ListType[]>[],
+    singleProduct: <ListType>{}
   },
   getters: {
     
@@ -67,6 +68,16 @@ export default createStore({
         // if sort type is empty it assigns sortedList to filteredProducts inside of state
         state.filteredProducts = sortedResult.slice(0, limitNumber)
       }
+    },
+
+    getSingleProduct (state, payload) {
+      console.log(payload);
+      
+      state.products.forEach(el => {
+        if(el.id === +payload) {
+          state.singleProduct = el          
+        }
+      })
     }
   },
   actions: {
