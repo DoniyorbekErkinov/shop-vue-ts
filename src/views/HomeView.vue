@@ -12,7 +12,7 @@
             <SelectComponents :selectList="filter" @input="sortByPrice($event)"/>
           </div>
         </div>
-        <div class=" flex flex-row lg:p-8 xl:p-8">
+        <div class=" flex flex-row  my-12 mx-auto px-4 md:px-12 lg:p-8 xl:p-8">
           <List :dataList="dataList"/>
         </div>
       </div>
@@ -98,7 +98,6 @@ const getSideBarFilters = (event: any) => {
   filterForm.value.priceForm = event.priceForm
   getData()
 }
-const search = ref<string>("")
 const  getSearch = (event: string ) => {
   filterForm.value.search = event
   getData()  
