@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container mx-auto flex sm:w-full  md:w-full lg:py-12 lg:px-16 xl:py-12 xl:px-16">
+  <div class="bg-gray-200 dark:bg-blue-200">
+    <div class="container mx-auto flex sm:w-full md:w-full lg:py-12 lg:px-16 xl:py-12 xl:px-16">
       <div class="w-2/12 max-md:hidden max-lg:hidden max-xl:hidden">
         <SideBar @getSideBarFilters="getSideBarFilters($event)"/>
       </div>
@@ -110,9 +110,14 @@ const getData = () => {
 }
 onMounted(() => {
   getData()
+  console.log(store.state.darkMode);
+  
 })
 // getData
 </script>
 <style lang="scss" scoped>
+body {
+  min-height: 50vh;
 
+}
 </style>

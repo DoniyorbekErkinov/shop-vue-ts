@@ -4,14 +4,19 @@ import products from "../data/data"
 
 export default createStore({
   state: {
+    darkMode: localStorage.dark == 1 ? true : false,
     products: products,
     filteredProducts: <ListType[]>[],
     singleProduct: <ListType>{}
   },
   getters: {
-    
+    darkMode: state => state.darkMode,    
   },
   mutations: {
+    toggleDarkMode(state) {
+      state.darkMode = !state.darkMode;
+    },
+
     filteredList (state, payload) {
       //created new let and assigned products
       let sortedResult: ListType[] = state.products
@@ -70,9 +75,7 @@ export default createStore({
       }
     },
 
-    getSingleProduct (state, payload) {
-      console.log(payload);
-      
+    getSingleProduct (state, payload) {          
       state.products.forEach(el => {
         if(el.id === +payload) {
           state.singleProduct = el          
