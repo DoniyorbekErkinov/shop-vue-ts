@@ -10,14 +10,14 @@
         >
       </div>
       <div class="flex items-center">
+        <router-link to="/api-test">Api-Test</router-link>
         <button class="mx-2 hover:scale-110">
           <mdicon class="text-white" name="cart" />
         </button>
-        <router-link
-          to="/api-test"
+        <button
           class="border rounded-full py-1 px-4 text-white font-medium ml-4 hover:bg-white hover:text-slate-400 hover:scale-110">
           Sign Up | Sign In
-        </router-link>
+        </button>
         <label class="switch mx-10">
           <input v-model="mode" type="checkbox" />
           <span class="slider round"></span>
