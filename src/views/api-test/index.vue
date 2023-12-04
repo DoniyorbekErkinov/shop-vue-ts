@@ -1,5 +1,12 @@
 <template>
-  <div class="h-full py-4">
+  <div class="h-full py-4 flex flex-col">
+    <div class="w-[80%] mx-auto flex justify-end">
+      <SelectComponents
+        class="mr-4"
+        :selectList="categories"
+        @input="GetCategory($event)" />
+      <SelectComponents :selectList="limits" @input="limitNumbers($event)" />
+    </div>
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-[80%] mx-auto">
       <div
@@ -29,22 +36,31 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+// Imports
 import axios from "axios";
+import { useNews } from "./index";
 import { ref, onMounted } from "vue";
-const list = ref([]);
-const page = ref(1);
+import SelectComponents from "@/components/Selects/SelectComponents.vue";
+// Variables
+const { categories, limits } = useNews();
+const list = ref<any>([]);
+const page = ref<any>(1);
+const limit = ref<number>(limits.value[0].value);
+const category = ref<string>(categories.value[0].value);
+
+// Functions
 function getList() {
   axios({
     method: "get",
     url: "https://newsi-api.p.rapidapi.com/api/category",
     params: {
-      category: "world",
+      category: category.value,
       language: "en",
       country: "us",
       sort: "top",
       page: page.value,
-      limit: "20",
+      limit: limit.value,
     },
     headers: {
       "X-RapidAPI-Key": "e4448ec584msh8f045fa2cad6af6p1683d2jsn80be66b38254",
@@ -62,6 +78,19 @@ function getList() {
     .finally(function () {
       // always executed
     });
+}
+
+function limitNumbers(event: any) {
+  page.value = 1;
+  list.value = [];
+  limit.value = event;
+  getList();
+}
+function GetCategory(event: any) {
+  page.value = 1;
+  list.value = [];
+  category.value = event.trim();
+  getList();
 }
 onMounted(() => {
   getList();
