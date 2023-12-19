@@ -10,7 +10,6 @@
         >
       </div>
       <div class="flex items-center">
-        <router-link to="/api-test">Api-Test</router-link>
         <button class="mx-2 hover:scale-110">
           <mdicon class="text-white" name="cart" />
         </button>

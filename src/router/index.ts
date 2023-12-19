@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Details from "../views/Datails/Details.vue";
-import ApiTest from "../views/api-test/index.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -12,11 +11,6 @@ const routes: Array<RouteRecordRaw> = [
     path: "/details/:id",
     name: "details",
     component: Details,
-  },
-  {
-    path: "/api-test",
-    name: "Api Test",
-    component: ApiTest,
   },
 ];
 
